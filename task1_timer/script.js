@@ -13,7 +13,7 @@ stopBtn.textContent = 'STOP'
 parent.appendChild(element)
 parent.appendChild(start)
 
-let time = 6000
+let time = 6000 //початковий час
 let interval
 
 function timer(newTime) {
@@ -22,7 +22,7 @@ function timer(newTime) {
       stopTime()
     }
     element.textContent = formatDate(newTime)
-    newTime -= 1000
+    newTime -= 1000 // зменшення на секунду
   }, 1000)
 
   parent.appendChild(stopBtn)
@@ -30,7 +30,7 @@ function timer(newTime) {
 }
 
 function formatDate(newTime) {
-  return new Date(newTime).toISOString().substr(14, 5)
+  return new Date(newTime).toISOString().substr(14, 5) //вигляд таймера
 }
 
 parent.addEventListener('click', (event) => {
@@ -44,7 +44,7 @@ parent.addEventListener('click', (event) => {
   }
 })
 function stopTime() {
-  element.textContent = formatDate(0)
+  element.textContent = formatDate(0) //обнуляю час
   clearInterval(interval)
   stopBtn.remove()
   parent.appendChild(start)
